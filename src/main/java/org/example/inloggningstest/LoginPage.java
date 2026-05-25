@@ -3,17 +3,13 @@ package org.example.inloggningstest;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 
 public class LoginPage {
 
-    ChromeOptions options = new ChromeOptions();
-    WebDriver driver;
-
-    {
-        new ChromeDriver(options);
-    }
+   EdgeOptions options = new EdgeOptions();
+   WebDriver driver;
 
     By usernameField = By.id("user-name");
     By passwordField = By.id("password");

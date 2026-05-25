@@ -1,14 +1,12 @@
 package org.example.inloggningstest;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import  org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Test;
 
 import org.openqa.selenium.WebDriver;
 
-import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.openqa.selenium.edge.EdgeDriver;
 
 import java.util.Objects;
 
@@ -19,29 +17,33 @@ public class LoginTests {
     WebDriver driver;
     LoginPage loginPage;
 
+
     @BeforeEach
     public void setup() {
-        WebDriverManager.chromedriver().setup();
 
-        driver = new ChromeDriver();
+        driver = new EdgeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/");
         loginPage = new LoginPage(driver);
 
     }
+
     @AfterEach
     public void teardown() {
         driver.quit();
     }
 
     @Test
-    public void successfulLoginTest(){
+    public void successfulLoginTest() {
         //test1
         loginPage.enterUserName("standard_user");
         loginPage.enterPassword("secret_sauce");
         loginPage.clickLoginButton();
 
-        try {Thread.sleep(2000);} catch (InterruptedException e) {}
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+        }
 
         String currentUrl = driver.getCurrentUrl();
         String title = driver.getTitle();
@@ -51,7 +53,7 @@ public class LoginTests {
     }
 
     @Test
-    public void failLoginTest(){
+    public void failLoginTest() {
         //test2
         loginPage.enterUserName("standard_user");
         loginPage.enterPassword("wrong_password");
