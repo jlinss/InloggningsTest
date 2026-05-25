@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import org.openqa.selenium.WebDriver;
 
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.Objects;
 
@@ -22,14 +22,14 @@ public class LoginTests {
     @BeforeEach
     public void setup() {
 
-        EdgeOptions options = new EdgeOptions();
+        ChromeOptions options = new ChromeOptions();
 
         options.addArguments("--headless=new");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--window-size=1920,1080");
 
-        driver = new EdgeDriver(options);
+        driver = new ChromeDriver(options);
 
         driver.get("https://www.saucedemo.com/");
 
