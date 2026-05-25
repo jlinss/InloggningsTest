@@ -36,7 +36,7 @@ public class LoginTests {
 
     @Test
     public void successfulLoginTest(){
-
+        //test1
         loginPage.enterUserName("standard_user");
         loginPage.enterPassword("secret_sauce");
         loginPage.clickLoginButton();
@@ -52,6 +52,7 @@ public class LoginTests {
 
     @Test
     public void failLoginTest(){
+        //test2
         loginPage.enterUserName("standard_user");
         loginPage.enterPassword("wrong_password");
         loginPage.clickLoginButton();
