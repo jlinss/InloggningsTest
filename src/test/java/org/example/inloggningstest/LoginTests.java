@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 
 import java.util.Objects;
 
@@ -21,10 +22,23 @@ public class LoginTests {
     @BeforeEach
     public void setup() {
 
-        driver = new EdgeDriver();
-        driver.manage().window().maximize();
+        EdgeOptions options = new EdgeOptions();
+
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-allow-origins=*");
+
+        driver = new EdgeDriver(options);
+
         driver.get("https://www.saucedemo.com/");
+
         loginPage = new LoginPage(driver);
+
+//        driver = new EdgeDriver();
+//        driver.manage().window().maximize();
+//        driver.get("https://www.saucedemo.com/");
+//        loginPage = new LoginPage(driver);
 
     }
 
