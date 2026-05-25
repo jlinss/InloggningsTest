@@ -3,12 +3,10 @@ package org.example.inloggningstest;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 
 public class LoginPage {
 
-   EdgeOptions options = new EdgeOptions();
    WebDriver driver;
 
     By usernameField = By.id("user-name");
