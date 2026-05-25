@@ -3,17 +3,24 @@ package org.example.inloggningstest;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class LoginPage {
 
+    ChromeOptions options = new ChromeOptions();
     WebDriver driver;
+
+    {
+        new ChromeDriver(options);
+    }
 
     By usernameField = By.id("user-name");
     By passwordField = By.id("password");
     By loginButton = By.id("login-button");
     By errorMessage = By.cssSelector("h3");
 
-    public LoginPage(WebDriver driver){
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
 
